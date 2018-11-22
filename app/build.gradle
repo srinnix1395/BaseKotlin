@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -26,12 +28,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation "com.android.support:recyclerview-v7:28.x"
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
 
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha07'
-    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha07'
-    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha07'
-    implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha07'
     implementation 'androidx.core:core-ktx:1.0.1'
 
     // testing
@@ -51,9 +49,16 @@ dependencies {
 
     // dagger 2
     implementation 'com.google.dagger:dagger-android:2.15'
-    implementation 'com.google.dagger:dagger-android-support:2.10'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.10'
+    implementation 'com.google.dagger:dagger-android-support:2.11'
+    kapt 'com.google.dagger:dagger-android-processor:2.11'
 
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    //event bus
+    implementation 'org.greenrobot:eventbus:3.1.1'
 }
